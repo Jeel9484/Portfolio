@@ -19,7 +19,7 @@ const Comapanies = () => {
 
   const scrollVariant1 = {
     animate: {
-      x: [0, -1000],
+      x: [0, -2000],
       transition: {
         x: {
           repeat: Infinity,
@@ -32,7 +32,7 @@ const Comapanies = () => {
 
   const scrollVariant2 = {
     animate: {
-      x: [-1000, 0],
+      x: [-2000, 0],
       transition: {
         x: {
           repeat: Infinity,
@@ -45,11 +45,11 @@ const Comapanies = () => {
 
   return (
     <div className=" text-white py-16">
-      <div className="container mx-auto text-center">
+      <div className="w-full px-4 sm:px-10 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           Companies I' Worked with
         </h2>
-        <div className="overflow-hidden relative w-full">
+        <div className="overflow-hidden relative w-full px-4 sm:px-10">
           <motion.div
             variants={scrollVariant1}
             animate="animate"

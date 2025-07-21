@@ -85,15 +85,15 @@ const Work = () => {
             </motion.div>
           ))}
         </div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 100 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.3 }}
-        >
-          <Comapanies />
-        </motion.div>
       </div>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.5, duration: 0.3 }}
+      >
+        <Comapanies />
+      </motion.div>
     </div>
   );
 };
