@@ -45,7 +45,7 @@ const Comapanies = () => {
 
   return (
     <div className=" text-white py-16">
-      <div className="w-full px-4 sm:px-10 text-center">
+      <div className="w-full  text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           Companies I' Worked with
         </h2>
