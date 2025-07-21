@@ -12,7 +12,7 @@ import { FaMapMarker, FaLinkedin } from "react-icons/fa";
 const Contact = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
   });
 
   return (
@@ -22,7 +22,7 @@ const Contact = () => {
           ref={ref}
           initial={{ opacity: 0, y: -100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
           className="text-4xl font-bold text-white"
         >
           Let's Discuss Your <span className="text-purple-500">Project</span>
@@ -31,7 +31,7 @@ const Contact = () => {
           ref={ref}
           initial={{ opacity: 0, y: -100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 0.3 }}
           className="text-slate-200 mt-4"
         >
           I’m always excited to connect with fellow professionals, potential
@@ -48,7 +48,7 @@ const Contact = () => {
             ref={ref}
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
             className="flex items-center space-x-4"
           >
             <div className="bg-purple-500 p-4 rounded-full">
@@ -64,7 +64,7 @@ const Contact = () => {
             ref={ref}
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
             className="flex items-center space-x-4"
           >
             <div className="bg-purple-500 p-4 rounded-full">
@@ -80,7 +80,7 @@ const Contact = () => {
             ref={ref}
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.6, duration: 0.5 }}
+            transition={{ delay: 0.4, duration: 0.3 }}
             className="flex items-center space-x-4"
           >
             <div className="bg-purple-500 p-4 rounded-full">
@@ -99,7 +99,7 @@ const Contact = () => {
           ref={ref}
           initial={{ opacity: 0, x: 50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.5 }}
+          transition={{ delay: 0.5, duration: 0.3 }}
           className="space-y-4 text-white"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

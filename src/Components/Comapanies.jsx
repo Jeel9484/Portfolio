@@ -19,7 +19,7 @@ const Comapanies = () => {
 
   const scrollVariant1 = {
     animate: {
-      x: [0, -2000],
+      x: [0, -1000],
       transition: {
         x: {
           repeat: Infinity,
@@ -32,7 +32,7 @@ const Comapanies = () => {
 
   const scrollVariant2 = {
     animate: {
-      x: [-2000, 0],
+      x: [-1000, 0],
       transition: {
         x: {
           repeat: Infinity,
@@ -44,7 +44,7 @@ const Comapanies = () => {
   };
 
   return (
-    <div className="text-white py-16">
+    <div className=" text-white py-16">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           Companies I' Worked with

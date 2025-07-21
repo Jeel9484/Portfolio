@@ -37,7 +37,7 @@ const Work = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
   });
   return (
     <div id="work" className="py-12">
@@ -46,7 +46,7 @@ const Work = () => {
           ref={ref}
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
           className="text-4xl text-white underline font-bold text-center mb-12"
         >
           My Work
@@ -55,7 +55,7 @@ const Work = () => {
           ref={ref}
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
           className="mb-12 text-gray-400 text-center"
         >
           Here are some of the projects I’ve built using React, Next.js,
@@ -91,7 +91,7 @@ const Work = () => {
         ref={ref}
         initial={{ opacity: 0, y: 100 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.7, duration: 0.5 }}
+        transition={{ delay: 0.5, duration: 0.3 }}
       >
         <Comapanies />
       </motion.div>
