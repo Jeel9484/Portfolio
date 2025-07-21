@@ -41,7 +41,7 @@ const Service = () => {
     threshold: 0.1,
   });
   return (
-    <div id="services" className="text-white py-16">
+    <div id="services" className="text-white py-16 overflow-hidden">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}

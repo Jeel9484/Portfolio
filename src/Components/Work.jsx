@@ -40,7 +40,7 @@ const Work = () => {
     threshold: 0.1,
   });
   return (
-    <div id="work" className="py-12">
+    <div id="work" className="py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           ref={ref}

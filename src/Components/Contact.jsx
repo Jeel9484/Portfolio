@@ -16,7 +16,7 @@ const Contact = () => {
   });
 
   return (
-    <div id="contact">
+    <div id="contact" className="overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
         <motion.h2
           ref={ref}

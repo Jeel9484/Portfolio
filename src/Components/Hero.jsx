@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 const Hero = () => {
   return (
-    <div className="text-white py-10">
+    <div className="text-white py-10 overflow-hidden">
       <motion.img
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}

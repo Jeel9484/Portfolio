@@ -9,7 +9,7 @@ const About = () => {
     threshold: 0.1,
   });
   return (
-    <div id="about" className="text-white py-16">
+    <div id="about" className="text-white py-16 overflow-hidden">
       <div className="container mx-auto px-4 text-center">
         <motion.h2
           ref={ref}
