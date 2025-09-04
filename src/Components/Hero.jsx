@@ -1,67 +1,71 @@
 import React from "react";
-import Avtar from "../Assets/img-1.png";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import heroBg from "../Assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
-    <div className="text-white py-10 overflow-hidden">
-      <motion.img
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        src={Avtar}
-        className="mx-auto w-2/3 md:w-1/3 lg:w-1/4"
-      />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="container mx-auto text-center"
-      >
+    <div
+      className="text-white h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="container mx-auto text-center">
         <motion.h1
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="text-4xl md:text-5xl flex flex-col gap-4 font-bold mb-4"
+          transition={{ delay: 0.5, duration: 1, type: "spring" }}
+          className="text-5xl md:text-7xl font-bold mb-4"
         >
-          Say my name
-          <motion.span
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="text-purple-500"
-          >
-            Build Your Perosnal Portfolio
-          </motion.span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            Jeel Patel
+          </span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.5 }}
-          className="text-gray-400 text-lg mb-8"
+          transition={{ delay: 1, duration: 1, type: "spring" }}
+          className="text-gray-300 text-lg md:text-xl mb-8"
         >
-          Showcase Your Joureny With Personal Portfolio Project
+          A Creative Developer with a Passion for Building Modern and
+          Interactive Web Applications.
         </motion.p>
-        <div className="flex justify-center space-x-4 gap-4">
-          <motion.button
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="bg-purple-500 text-white px-6 py-3 rounded-full"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+          className="flex justify-center space-x-6"
+        >
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-400 transition-colors duration-300"
           >
-            Hire me
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="text-white border border-white px-6 py-3 rounded-full"
+            <FaGithub size={30} />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-400 transition-colors duration-300"
           >
-            My Story
-          </motion.button>
-        </div>
-      </motion.div>
+            <FaLinkedin size={30} />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-400 transition-colors duration-300"
+          >
+            <FaTwitter size={30} />
+          </a>
+        </motion.div>
+      </div>
     </div>
   );
 };

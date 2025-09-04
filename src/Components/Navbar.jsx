@@ -1,102 +1,108 @@
 import React, { useState } from "react";
-import { IoIosMenu } from "react-icons/io";
-import { IoMdClose } from "react-icons/io";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import { clipPath } from "motion/react-client";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const [menu, setMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const variants = {
-    open: { clipPath: "circle(1200px at 43px 43px)" },
-    transition: {
-      type: "spring",
-    },
-    closed: { clipPath: "circle(25px at 43px 37px" },
-    transition: {
-      type: "spring",
-      duration: 1,
-    },
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
-  const items = [
+
+  const navItems = [
     { id: 1, text: "About", to: "about" },
     { id: 2, text: "Service", to: "service" },
     { id: 3, text: "Work", to: "work" },
     { id: 4, text: "Contact", to: "contact" },
   ];
+
   return (
-    <div>
-      <motion.div
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="container mx-auto hidden md:flex justify-between items-center py-6"
-      >
-        <div className="text-lg lg:text-2xl font-bold flex items-center gap-2">
-          <span className="text-white">Jeel</span>
-          <span className="text-purple-500">Patel</span>
-        </div>
-        <ul className="hidden md:flex items-center space-x-6 list-none lg:text-lg md:text-base text-white">
-          {items.map(({ id, text, to }) => (
-            <li key={id}>
-              <Link to={to} smooth={true} duration={500} offset={-70}>
-                {text}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <a
-          href=""
-          className="md:text-base lg:text-lg bg-purple-500 hover:bg-purple-400 rounded-full text-white px-4 py-2"
-        >
-          Download CV
-        </a>
-      </motion.div>
-
-      <div className="flex md:hidden justify-between">
-        <motion.div animate={menu ? "open" : "closed"}>
-          <motion.div
-            variants={variants}
-            className="bg-white w-2/3 h-screen text-black fixed z-10"
-            onClick={() => setMenu((prev) => !prev)}
-          >
-            <div className="px-7 py-6">
-              {menu ? <IoMdClose size={30} /> : <IoIosMenu size={30} />}
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-50 backdrop-blur-lg"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <h1 className="text-2xl font-bold text-white">
+              <span className="text-purple-400">Jeel</span> Patel
+            </h1>
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.to}
+                  smooth={true}
+                  duration={500}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  {item.text}
+                </Link>
+              ))}
             </div>
-            {menu && (
-              <div className="flex flex-col justify-center items-center">
-                <ul className="space-y-6 text-black text-lg ">
-                  {items.map(({ id, text,to }) => (
-                    <li
-                      key={id}
-                      className="hover:cursor-pointer text-purple-500 duration-200"
-                    >
-                      <Link to={to} smooth={true} duration={500} offset={-70}>
-                        {text}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <a className="text-lg bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 mt-6 rounded-full">
-                  Download CV
-                </a>
-              </div>
-            )}
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 100, y: -100 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-xl font-bold flex items-center gap-2 py-6 px-4"
-        >
-          <span className="text-white">Jeel</span>
-          <span className="text-purple-500">Patel</span>
-        </motion.div>
+          </div>
+          <div className="hidden md:block">
+            <a
+              href="#"
+              className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-300"
+            >
+              Download CV
+            </a>
+          </div>
+          <div className="-mr-2 flex md:hidden">
+            <button
+              onClick={toggleMenu}
+              type="button"
+              className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="md:hidden"
+          id="mobile-menu"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.to}
+                smooth={true}
+                duration={500}
+                onClick={toggleMenu}
+                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                {item.text}
+              </Link>
+            ))}
+          </div>
+          <div className="pt-4 pb-3 border-t border-gray-700">
+            <div className="flex items-center px-5">
+              <a
+                href="#"
+                className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-300"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </motion.nav>
   );
 };
 
