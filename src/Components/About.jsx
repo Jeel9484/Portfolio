@@ -1,129 +1,88 @@
 import React from "react";
-import EM from "../Assets/aboutimg-1.png";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import aboutImg from "../Assets/aboutimg-1.png";
 
 const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const stats = [
+    { id: 1, value: "5+", label: "Years of Design Experience" },
+    { id: 2, value: "50+", label: "Overall Global Customer" },
+    { id: 3, value: "5+", label: "Years of Frontend Development" },
+  ];
+
   return (
-    <div id="about" className="text-white py-16 overflow-hidden">
-      <div className="container mx-auto px-4 text-center">
+    <div id="about" className="py-20 bg-black bg-opacity-20 text-white">
+      <div className="container mx-auto px-4">
         <motion.h2
           ref={ref}
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: -50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.3 }}
-          className="text-3xl md:text-4xl font-bold mb-8 underline"
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-center mb-12"
         >
-          About Me
+          About <span className="text-purple-400">Me</span>
         </motion.h2>
-        <motion.p
-          ref={ref}
-          initial={{ opacity: 0, y: 100 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.3 }}
-          className="mb-12 text-gray-400 text-center"
-        >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat non
-          distinctio ducimus
-        </motion.p>
-        <div className="flex flex-col md:flex-row justify-center items-center">
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, x: -100 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.3 }}
-            className="mb-8 md:mb-0 md:mr-8 flex justify-center"
+            transition={{ duration: 0.8 }}
+            className="md:w-1/3"
           >
-            <img src={EM} className="w-2/3 sm:w-1/2 md:w-10/12" />
+            <img
+              src={aboutImg}
+              alt="About Me"
+              className="rounded-lg shadow-lg"
+            />
           </motion.div>
-          <motion.p
+          <motion.div
             ref={ref}
             initial={{ opacity: 0, x: 100 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.5, duration: 0.3 }}
-            className="md:w-1/2 text-gray-400 px-4 md:px-0 text-base sm:text-lg md:text-xl"
+            transition={{ duration: 0.8 }}
+            className="md:w-2/3 text-lg text-gray-300"
           >
-            Hi, I’m Jeel. I work as a frontend developer, and my focus is on
-            creating web applications that are easy to scale, perform well, and
-            are simple to maintain. I mainly use HTML, CSS, JavaScript,
-            TypeScript, Next.js, and Tailwind CSS in my work. My strengths lie
-            in crafting responsive user interfaces, adding smooth animations
-            with Framer Motion, and turning Figma designs into flawless,
-            ready-to-use code. I’m familiar with Git, which helps me collaborate
-            with others and manage versions of projects. I stick to current best
-            practices like component-based design, utility-first styling, proper
-            markup, and ensuring accessibility. I love to keep learning and
-            trying out new technologies, all with the goal of providing
-            top-notch frontend solutions that reflect the newest trends in web
-            development.
-          </motion.p>
+            <p>
+              Hi, I’m Jeel. I work as a frontend developer, and my focus is on
+              creating web applications that are easy to scale, perform well,
+              and are simple to maintain. I mainly use HTML, CSS, JavaScript,
+              TypeScript, Next.js, and Tailwind CSS in my work. My strengths lie
+              in crafting responsive user interfaces, adding smooth animations
+              with Framer Motion, and turning Figma designs into flawless,
+              ready-to-use code. I’m familiar with Git, which helps me
+              collaborate with others and manage versions of projects. I stick
+              to current best practices like component-based design,
+              utility-first styling, proper markup, and ensuring accessibility.
+              I love to keep learning and trying out new technologies, all with
+              the goal of providing top-notch frontend solutions that reflect
+              the newest trends in web development.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-around items-center mt-12 space-y-6 sm:space-y-0">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 1.2, duration: 0.3 }}
-            className="text-center"
-          >
-            <h3 className="text-3xl md:text-8xl font-bold md:my-6 text-purple-500">
-              5+
-            </h3>
-            <motion.p
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.id}
               ref={ref}
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.7, duration: 0.3 }}
-              className="text-sm sm:text-base text-gray-300"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-lg text-center"
             >
-              Years of Design Experience
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 1.4, duration: 0.3 }}
-          >
-            <h3 className="text-3xl md:text-8xl font-bold md:my-6 text-purple-500">
-              50+
-            </h3>
-            <motion.p
-              ref={ref}
-              initial={{ opacity: 0, y: 100 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.8, duration: 0.5 }}
-              className="text-sm sm:text-base text-gray-300"
-            >
-              OverAll Global Customer
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 1.6, duration: 0.3 }}
-          >
-            <h3 className="text-3xl md:text-8xl font-bold md:my-6 text-purple-500">
-              5+
-            </h3>
-            <motion.p
-              ref={ref}
-              initial={{ opacity: 0, y: 100 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.9, duration: 0.5 }}
-              className="text-sm sm:text-base text-gray-300"
-            >
-              Years of Design Experience
-            </motion.p>
-          </motion.div>
+              <h3 className="text-5xl font-bold text-purple-400 mb-2">
+                {stat.value}
+              </h3>
+              <p className="text-gray-300">{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
